@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     var count = 4
     var text = ""
     var first = true
-    var historyArr: [String] = []
+    var historyArr: [String] = [""]
     var players: [UILabel] = []
     
 
@@ -123,9 +123,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var LoserLabel: UILabel!
     
-    
-    @IBOutlet weak var HistoryList: UILabel!
-    
+        
+    @IBOutlet weak var Ok: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +136,7 @@ class ViewController: UIViewController {
         Input.isHidden = true
         label.isHidden = true
         LoserLabel.isHidden = true
+        Ok.isHidden = true
         
         players.append(Player1Score)
         players.append(Player2Score)
@@ -145,6 +145,8 @@ class ViewController: UIViewController {
         
         
         print(players.count)
+        
+    
         
         
 
@@ -296,7 +298,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Player1Add1(_ sender: Any) {
-        var value = Int(Player1Score.text ?? "0")!
+        let text1 = Player1Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player1Score.text = "\(value)"
         historyArr.append("Player 1 gained one life")
@@ -319,7 +322,8 @@ class ViewController: UIViewController {
     var removed1 = false
     
     @IBAction func Player1Subtract1(_ sender: Any) {
-        var value = Int(Player1Score.text ?? "0")!
+        let text1 = Player1Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player1Score.text = "\(value)"
         historyArr.append("Player 1 lost one life")
@@ -338,7 +342,7 @@ class ViewController: UIViewController {
             var val = 0
             
             if (players.count > 1){
-                for (index, name) in players.enumerated() {
+                for (index, _) in players.enumerated() {
                     
                     if players[index] == Player1Score {
                         val = index
@@ -357,28 +361,37 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
         }
     }
     
     
     @IBAction func Player2Add1(_ sender: Any) {
-        var value = Int(Player2Score.text ?? "0")!
+        let text1 = Player2Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player2Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 2 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed2 = false
     @IBAction func Player2Subtract1(_ sender: Any) {
-        var value = Int(Player2Score.text ?? "0")!
+        let text1 = Player2Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player2Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 2 lost one life")
+
         
      
 
@@ -409,28 +422,38 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
     
     @IBAction func Player3Add1(_ sender: Any) {
-        var value = Int(Player3Score.text ?? "0")!
+        let text1 = Player3Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player3Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 3 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed3 = false
     @IBAction func Player3Subtract1(_ sender: Any) {
-        var value = Int(Player3Score.text ?? "0")!
+        let text1 = Player3Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player3Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 3 lost one life")
+
         
 
         
@@ -460,28 +483,38 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
     
     @IBAction func Player4Add1(_ sender: Any) {
-        var value = Int(Player4Score.text ?? "0")!
+        let text1 = Player4Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player4Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 4 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed4 = false
     @IBAction func Player4Subtract1(_ sender: Any) {
-        var value = Int(Player4Score.text ?? "0")!
+        let text1 = Player4Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player4Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 4 lost one life")
+
         
 
         
@@ -511,28 +544,38 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
     
     @IBAction func Player5Add1(_ sender: Any) {
-        var value = Int(Player5Score.text ?? "0")!
+        let text1 = Player5Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player5Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 5 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed5 = false
     @IBAction func Player5Subtract1(_ sender: Any) {
-        var value = Int(Player5Score.text ?? "0")!
+        let text1 = Player5Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player5Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 5 lost one life")
+
 
         
         if value <= 0 && removed5 == false{
@@ -561,28 +604,38 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
     
     @IBAction func Player6Add1(_ sender: Any) {
-        var value = Int(Player6Score.text ?? "0")!
+        let text1 = Player6Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player6Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 6 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed6 = false
     @IBAction func Player6Subtract1(_ sender: Any) {
-        var value = Int(Player6Score.text ?? "0")!
+        let text1 = Player6Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player6Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 6 lost one life")
+
 
         
         if value <= 0 && removed6 == false{
@@ -610,28 +663,38 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
     
     @IBAction func Player7Add1(_ sender: Any) {
-        var value = Int(Player7Score.text ?? "0")!
+        let text1 = Player7Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player7Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 7 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed7 = false
     @IBAction func Player7Add2(_ sender: Any) {
-        var value = Int(Player7Score.text ?? "0")!
+        let text1 = Player7Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player7Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 7 lost one life")
+
 
         
         if value <= 0 && removed7 == false{
@@ -660,29 +723,39 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     
     }
     
     
     @IBAction func Player8Add1(_ sender: Any) {
-        var value = Int(Player8Score.text ?? "0")!
+        let text1 = Player8Score.text ?? ""
+        var value = Int(text1) ?? 0
         value += 1
         Player8Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 8 gained one life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
     var removed8 = false
     @IBAction func Player8Subtract1(_ sender: Any) {
-        var value = Int(Player8Score.text ?? "0")!
+        let text1 = Player8Score.text ?? ""
+        var value = Int(text1) ?? 0
         value -= 1
         Player8Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 8 lost one life")
+
 
         
         if value <= 0 && removed8 == false{
@@ -711,6 +784,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -756,14 +831,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player1Score.text ?? "0")!
+        let text1 = Player1Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player1Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 1 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -802,10 +882,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player1Score.text ?? "0")!
+        let text1 = Player1Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player1Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 1 lost \(Added) life")
+
 
         
         if value <= 0 && removed1 == false{
@@ -834,6 +917,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -870,14 +955,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player2Score.text ?? "0")!
+        let text1 = Player2Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player2Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 2 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -913,10 +1003,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player2Score.text ?? "0")!
+        let text1 = Player2Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player2Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 2 lost \(Added) life")
+
 
         
         if value <= 0 && removed2 == false{
@@ -944,6 +1037,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -977,14 +1072,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player3Score.text ?? "0")!
+        let text1 = Player3Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player3Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 3 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -1019,10 +1119,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player3Score.text ?? "0")!
+        let text1 = Player3Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player3Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 3 lost \(Added) life")
+
 
         
         if value <= 0 && removed3 == false{
@@ -1050,6 +1153,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -1084,14 +1189,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player4Score.text ?? "0")!
+        let text1 = Player4Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player4Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 4 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -1126,10 +1236,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player4Score.text ?? "0")!
+        let text1 = Player4Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player4Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 4 lost \(Added) life")
+
 
         
         if value <= 0 && removed4 == false{
@@ -1158,6 +1271,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -1192,14 +1307,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player5Score.text ?? "0")!
+        let text1 = Player5Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player5Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 5 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -1235,10 +1355,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player5Score.text ?? "0")!
+        let text1 = Player5Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player5Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 5 lost \(Added) life")
+
 
         
         if value <= 0 && removed5 == false{
@@ -1266,6 +1389,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -1300,14 +1425,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player6Score.text ?? "0")!
+        let text1 = Player6Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player6Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 6 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -1342,10 +1472,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player6Score.text ?? "0")!
+        let text1 = Player6Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player6Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 6 lost \(Added) life")
+
 
         
         if value <= 0 && removed6 == false{
@@ -1374,6 +1507,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -1410,14 +1545,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player7Score.text ?? "0")!
+        let text1 = Player7Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player7Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 7 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -1454,10 +1594,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player7Score.text ?? "0")!
+        let text1 = Player7Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player7Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 7 lost \(Added) life")
+
 
         
         if value <= 0 && removed7 == false{
@@ -1486,6 +1629,8 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
@@ -1520,14 +1665,19 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player8Score.text ?? "0")!
+        let text1 = Player8Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value + Added
         Player8Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 8 gained \(Added) life")
+
 
         
         if value > 0 && LoserLabel.isHidden == false {
             LoserLabel.isHidden = true
+            Ok.isHidden = true
+
         }
     }
     
@@ -1562,10 +1712,13 @@ class ViewController: UIViewController {
         let arr = text.split(separator: " ")
         
         Added = Int(arr[1]) ?? 0
-        var value = Int(Player8Score.text ?? "0")!
+        let text1 = Player8Score.text ?? ""
+        var value = Int(text1) ?? 0
         value = value - Added
         Player8Score.text = "\(value)"
         AddPlayer.isEnabled = false
+        historyArr.append("Player 8 lost \(Added) life")
+
 
         
         if value <= 0 && removed8 == false{
@@ -1594,18 +1747,22 @@ class ViewController: UIViewController {
         
         if players.count == 1 {
             LoserLabel.isHidden = false
+            Ok.isHidden = false
+
         }
     }
     
     
     @IBAction func ViewHistory(_ sender: Any) {
         
-        if historyArr.isEmpty {
-            HistoryList.text = "No history"
-        } else {
-            
-            HistoryList.text = historyArr.joined(separator: "\n")
-        }
+//        HistoryList.text = "no history"
+        
+//        if historyArr.isEmpty {
+//            HistoryList.text = "No history"
+//        } else {
+//            
+//            HistoryList.text = historyArr.joined(separator: "\n")
+//        }
         
         
 //        for (index, element) in historyArr.enumerated() {
@@ -1648,6 +1805,8 @@ class ViewController: UIViewController {
         Player7Score.text = "20"
         Player8Score.text = "20"
         
+        count = 4
+        
         Player1AddAny.setTitle("+ 5", for: .normal)
         Player2AddAny.setTitle("+ 5", for: .normal)
         Player3AddAny.setTitle("+ 5", for: .normal)
@@ -1667,12 +1826,74 @@ class ViewController: UIViewController {
         Player8SubtractAny.setTitle("- 5", for: .normal)
         
         AddPlayer.isEnabled = true
+        Ok.isHidden = true
 
         
         historyArr.removeAll()
-        HistoryList.text = ""
+//        HistoryList.text = ""
 
 
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewHistory" {
+            let controller = segue.destination as? HistoryViewController
+            controller?.historyArr = historyArr
+            print("Preparing for segue - historyArr: \(historyArr)")
+
+            
+            
+        }
+    }
+    
+  
+    
+    @IBAction func Ok(_ sender: Any) {
+        Player5.isHidden = true
+        Player6.isHidden = true
+        Player7.isHidden = true
+        Player8.isHidden = true
+        
+        Input.isHidden = true
+        label.isHidden = true
+        LoserLabel.isHidden = true
+        
+        Player1Score.text = "20"
+        Player2Score.text = "20"
+        Player3Score.text = "20"
+        Player4Score.text = "20"
+        Player5Score.text = "20"
+        Player6Score.text = "20"
+        Player7Score.text = "20"
+        Player8Score.text = "20"
+        
+        count = 4
+        
+        Player1AddAny.setTitle("+ 5", for: .normal)
+        Player2AddAny.setTitle("+ 5", for: .normal)
+        Player3AddAny.setTitle("+ 5", for: .normal)
+        Player4AddAny.setTitle("+ 5", for: .normal)
+        Player5AddAny.setTitle("+ 5", for: .normal)
+        Player6AddAny.setTitle("+ 5", for: .normal)
+        Player7AddAny.setTitle("+ 5", for: .normal)
+        Player8AddAny.setTitle("+ 5", for: .normal)
+        
+        Player1SubtractAny.setTitle("- 5", for: .normal)
+        Player2SubtractAny.setTitle("- 5", for: .normal)
+        Player3SubtractAny.setTitle("- 5", for: .normal)
+        Player4SubtractAny.setTitle("- 5", for: .normal)
+        Player5SubtractAny.setTitle("- 5", for: .normal)
+        Player6SubtractAny.setTitle("- 5", for: .normal)
+        Player7SubtractAny.setTitle("- 5", for: .normal)
+        Player8SubtractAny.setTitle("- 5", for: .normal)
+        
+        AddPlayer.isEnabled = true
+        Ok.isHidden = true
+
+        
+        historyArr.removeAll()
+//        HistoryList.text = ""
 
     }
     

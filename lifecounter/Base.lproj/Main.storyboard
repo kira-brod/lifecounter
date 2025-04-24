@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="lifecounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dds-gG-8hX">
@@ -648,8 +648,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="History"/>
                                 <connections>
-                                    <action selector="ViewHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="paD-Eb-b7w"/>
-                                    <segue destination="qBu-Kk-ZtU" kind="presentation" id="GHX-in-MNl"/>
+                                    <segue destination="qBu-Kk-ZtU" kind="presentation" identifier="ViewHistory" id="GHX-in-MNl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abb-p5-GZY">
@@ -658,7 +657,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Reset"/>
                                 <connections>
-                                    <action selector="ViewHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFU-h9-deH"/>
+                                    <action selector="Reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rkg-hj-eKB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORb-ea-yrq">
@@ -669,6 +668,15 @@
                                 <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1U-22-v5t">
+                                <rect key="frame" x="171" y="732" width="46" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Ok"/>
+                                <connections>
+                                    <action selector="Ok:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zfR-Hk-NE8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -676,9 +684,9 @@
                     <navigationItem key="navigationItem" id="z9z-lE-kdv"/>
                     <connections>
                         <outlet property="AddPlayer" destination="Sxa-oW-RI3" id="vwt-Qq-ANR"/>
-                        <outlet property="HistoryList" destination="EWV-yA-RdR" id="E3W-5n-RcJ"/>
                         <outlet property="Input" destination="yzg-rS-Tw2" id="2FL-qR-tDM"/>
                         <outlet property="LoserLabel" destination="ORb-ea-yrq" id="rlJ-eA-iYY"/>
+                        <outlet property="Ok" destination="I1U-22-v5t" id="HSK-8P-AwP"/>
                         <outlet property="Player1" destination="kvQ-LF-419" id="8ef-0h-KFe"/>
                         <outlet property="Player1AddAny" destination="4A6-wx-q0V" id="CjV-bl-7cl"/>
                         <outlet property="Player1Score" destination="Wnf-MW-okc" id="yTb-0u-Wqt"/>
@@ -719,10 +727,10 @@
             </objects>
             <point key="canvasLocation" x="138.1679389312977" y="2.8169014084507045"/>
         </scene>
-        <!--View Controller-->
+        <!--HistoryViewController-->
         <scene sceneID="XPt-77-ZmS">
             <objects>
-                <viewController id="qBu-Kk-ZtU" sceneMemberID="viewController">
+                <viewController title="HistoryViewController" id="qBu-Kk-ZtU" customClass="HistoryViewController" customModule="lifecounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B5I-IH-5us">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -733,20 +741,25 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="GJN-Fm-8VC"/>
+                                    <action selector="btnBackPressed:" destination="qBu-Kk-ZtU" eventType="touchUpInside" id="bLb-Zp-mcd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-yA-RdR">
-                                <rect key="frame" x="48" y="149" width="303" height="536"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-zi-rws">
+                                <rect key="frame" x="48" y="195" width="240" height="399"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3EM-1t-MJl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="HistoryList" destination="ho5-zi-rws" id="dLG-az-CZg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VA3-dI-0dq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -754,6 +767,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
