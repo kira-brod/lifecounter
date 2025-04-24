@@ -1834,6 +1834,8 @@ class ViewController: UIViewController {
         players.append(Player3Score)
         players.append(Player4Score)
         
+        Input.text = ""
+        
 
         
         historyArr.removeAll()
@@ -1903,6 +1905,10 @@ class ViewController: UIViewController {
         players.append(Player2Score)
         players.append(Player3Score)
         players.append(Player4Score)
+        
+        Input.text = ""
+        
+        
         
 
 
